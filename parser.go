@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"strconv"
 	"strings"
@@ -98,7 +97,7 @@ func newReplacerFunc(r *http.Request) (caddy.ReplacerFunc, error) {
 	}
 
 	// replace the body for further handlers
-	r.Body = ioutil.NopCloser(&bodyCopy)
+	r.Body = io.NopCloser(&bodyCopy)
 
 	// prevent repetitive parsing. cache values
 	values := map[string]interface{}{}

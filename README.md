@@ -1,6 +1,4 @@
-Fork of https://github.com/abiosoft/caddy-json-parse
-
-[![Go](https://github.com/abiosoft/caddy-json-parse/workflows/Go/badge.svg)](https://github.com/abiosoft/caddy-json-parse/actions)
+[![Go](https://github.com/monobilisim/caddy-json-parse/actions/workflows/go.yml/badge.svg)](https://github.com/monobilisim/caddy-json-parse/actions/workflows/go.yml)
 
 # caddy-json-parse
 
@@ -9,8 +7,8 @@ Caddy v2 module for parsing json request body.
 ## Installation
 
 ```
-xcaddy build v2.0.0 \
-    --with github.com/abiosoft/caddy-json-parse
+xcaddy build \
+    --with github.com/monobilisim/caddy-json-parse
 ```
 
 ## Usage
@@ -29,15 +27,15 @@ And reference variables via `{json.*}` placeholders. Where `*` can get as deep a
 
 #### Example
 
-Run a [command](https://github.com/abiosoft/caddy-exec) only if the github webhook is a push on master branch.
+Run a [command](https://github.com/abiosoft/caddy-exec) only if the github webhook is a push on main branch.
 
 ```
 @webhook {
-    expression {json.ref}.endsWith('/master')
+    expression {json.ref}.endsWith('/main')
 }
 route {
     json_parse # enable json parser
-    exec @webhook git pull origin master
+    exec @webhook git pull origin main
 }
 ```
 
@@ -68,3 +66,7 @@ route {
 ## License
 
 Apache 2
+
+## Original Repository
+
+This project is a fork of [abiosoft/caddy-json-parse](https://github.com/abiosoft/caddy-json-parse).
